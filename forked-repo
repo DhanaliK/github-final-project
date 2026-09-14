@@ -1,4 +1,111 @@
-theia@theia-u31240308:/home/project$ curl -s https://api.github.com/repos/DhanaliK/mcino-Introduction-to-Git-and-GitHub | jq
- -r '.parent.clone_url'
-https://github.com/ibm-developer-skills-network/mcino-Introduction-to-Git-and-GitHub.git
-theia@theia-u31240308:/home/project$ 
+theia@theia-u31240308:/home/project$ git clone https://github.com/DhanaliK/mcino-Introduction-to-Git-and-GitHub.git
+cd mcino-Introduction-to-Git-and-GitHub
+fatal: destination path 'mcino-Introduction-to-Git-and-GitHub' already exists and is not an empty directory.
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ cd /home/project
+rm -rf mcino-Introduction-to-Git-and-GitHub
+git clone https://github.com/DhanaliK/mcino-Introduction-to-Git-and-GitHub.git
+cd mcino-Introduction-to-Git-and-GitHub
+Cloning into 'mcino-Introduction-to-Git-and-GitHub'...
+remote: Enumerating objects: 35, done.
+remote: Total 35 (delta 0), reused 0 (delta 0), pack-reused 35 (from 1)
+Receiving objects: 100% (35/35), 17.46 KiB | 17.46 MiB/s, done.
+Resolving deltas: 100% (6/6), done.
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git cgit checkout -b bug-fix-typo
+sed -i 's/2022 XYZ, Inc./2023 XYZ, Inc./' README.md
+git add README.md
+git commit -m "Update copyright year in README"
+git push -u origin bug-fix-typo
+Switched to a new branch 'bug-fix-typo'
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: unable to auto-detect email address (got 'theia@theia-u31240308.(none)')
+Username for 'https://github.com': DhanaliK
+Password for 'https://DhanaliK@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'bug-fix-typo' on GitHub by visiting:
+remote:      https://github.com/DhanaliK/mcino-Introduction-to-Git-and-GitHub/pull/new/bug-fix-typo
+remote: 
+To https://github.com/DhanaliK/mcino-Introduction-to-Git-and-GitHub.git
+ * [new branch]      bug-fix-typo -> bug-fix-typo
+Branch 'bug-fix-typo' set up to track remote branch 'bug-fix-typo' from 'origin'.
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git cgit checkout main
+git merge bug-fix-typo
+git push origin main
+M       README.md
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+Already up to date.
+Username for 'https://github.com': DhanaliK
+Password for 'https://DhanaliK@github.com': 
+Everything up-to-date
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git cgit checkout -b bug-fix-revert
+git log --oneline
+Switched to a new branch 'bug-fix-revert'
+ad95b0a (HEAD -> bug-fix-revert, origin/main, origin/bug-fix-typo, origin/HEAD, main, bug-fix-typo) Create close_pr.yml
+13af262 Create feature_request.md
+cd5f237 Create bug_report.md
+cdeb355 Create CODE_OF_CONDUCT.md
+3f7857c Create CONTRIBUTING.md
+2a3b643 Create simple-interest.sh
+f4e5aa3 Create compound_interest.py
+d8324ad Update README.md
+484d879 Initial commit
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git revert d8324adgit push -u origin bug-fix-rever
+t
+fatal: bad revision 'd8324adgit'
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git revert d8324ad
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ 
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ 
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ 
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git revert d8324ad
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ git rgit revert d8324ad
+git push -u origin bug-fix-revert
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+Username for 'https://github.com': DhanaliK
+Password for 'https://DhanaliK@github.com': 
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: 
+remote: Create a pull request for 'bug-fix-revert' on GitHub by visiting:
+remote:      https://github.com/DhanaliK/mcino-Introduction-to-Git-and-GitHub/pull/new/bug-fix-revert
+remote: 
+To https://github.com/DhanaliK/mcino-Introduction-to-Git-and-GitHub.git
+ * [new branch]      bug-fix-revert -> bug-fix-revert
+Branch 'bug-fix-revert' set up to track remote branch 'bug-fix-revert' from 'origin'.
+theia@theia-u31240308:/home/project/mcino-Introduction-to-Git-
+and-GitHub$ 
